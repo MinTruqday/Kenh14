@@ -25,7 +25,7 @@ ROBOTSTXT_OBEY = True
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-#DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 3
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -62,9 +62,15 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    "Kenh14.pipelines.Kenh14Pipeline": 300,
-#}
+ROBOTSTXT_OBEY = True
+FEED_EXPORT_ENCODING = 'utf-8'
+AUTOTHROTTLE_ENABLED = True
+AUTOTHROTTLE_START_DELAY = 0
+
+ITEM_PIPELINES = {
+    "Kenh14.pipelines.Kenh14DataCSVPipeline": 100,
+    "Kenh14.pipelines.Kenh14DataJSONPipeline": 200
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
