@@ -28,9 +28,9 @@ class Kenh14DataCSVPipeline:
                 k14item['AuthorName'],
                 k14item['DateTime'],
                 k14item['Intro'],
-                k14item['Paragraph'],
-                k14item['Image'],
-                k14item['Sponsor'],
+                k14item['Opening'],
+                k14item['Body'],
+                k14item['Ending'],
                 k14item['Source']
             ])
         return k14item
