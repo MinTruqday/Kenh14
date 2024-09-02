@@ -29,7 +29,7 @@ class Kenh14DataCSVPipeline:
                 k14item['DateTime'],
                 k14item['Intro'],
                 k14item['Opening'],
-                k14item['Body'],
+                k14item['Caption'],
                 k14item['Ending'],
                 k14item['Source']
             ])

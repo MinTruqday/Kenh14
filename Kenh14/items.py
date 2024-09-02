@@ -16,6 +16,6 @@ class Kenh14Item(scrapy.Item):
     DateTime = scrapy.Field()
     Intro = scrapy.Field()
     Opening = scrapy.Field()
-    Body = scrapy.Field()
+    Caption = scrapy.Field()
     Ending = scrapy.Field()
     Source  = scrapy.Field()

@@ -1,6 +1,7 @@
 import scrapy
 from Kenh14.items import Kenh14Item
 
+
 class Kenh14DataSpider(scrapy.Spider):
     name = "Kenh14Data"
     allowed_domains = ["kenh14.vn"]
@@ -18,7 +19,6 @@ class Kenh14DataSpider(scrapy.Spider):
             request.meta['articledata'] = k14item
             yield request
     
-
     def parsearticlepage(self, response):
         k14item = response.meta['articledata']
         k14item['Title'] = response.xpath('normalize-space(string(.//div[2]/div/div[1]/div[1]/div[1]/h1))').get()
@@ -27,7 +27,7 @@ class Kenh14DataSpider(scrapy.Spider):
         k14item['DateTime'] = response.xpath('normalize-space(string(.//div[2]/div/div[1]/div[1]/div[1]/div[2]/span[3]))').get()
         k14item['Intro'] = response.xpath('normalize-space(string(.//div[2]/div/div[1]/div[2]/h2))').get()
         k14item['Opening'] = response.xpath('normalize-space(string(.//div[2]/div/div[1]/div[2]/div[6]/p[1]))').get()
-        k14item['Body'] = response.xpath('normalize-space(string(.//div[2]/div/div[1]/div[2]/div[6]/p[2]))').get()
+        k14item['Caption'] = response.xpath('normalize-space(string(.//div[2]/div/div[1]/div[2]/div[6]/figure[1]/figcaption/p))').get()
         k14item['Ending'] = response.xpath('normalize-space(string(.//div[2]/div/div[1]/div[2]/div[6]/p[5]))').get()
         k14item['Source'] = response.xpath('normalize-space(string(.//div[2]/div/div[1]/div[1]/div[1]/div[2]/span[2]))').get()
         yield k14item    
